@@ -1,0 +1,29 @@
+{
+   "model_name":"factory_indoor",   
+   "parts":[
+      {
+         "name":"factory_indoor",
+         "type":"fixed",
+         "file":"factory.glb",
+         "scale":80,
+         "pos_x":0,
+         "pos_y":0,
+         "pos_z":0,
+         "rotate_x":0,
+         "rotate_y":0,
+         "rotate_z":0,
+         "moveable":"n",
+         "move_home":0,
+		   "move_data":"",
+         "rotatable":"n",
+         "rotate_point_x":0,
+         "rotate_point_y":0,
+         "rotate_point_z":0,
+         "rotate_axis_x":0,
+         "rotate_axis_y":0,
+         "rotate_axis_z":0,
+         "rotate_home":0,    
+         "rotate_data":"" 
+	  }
+   ]
+}

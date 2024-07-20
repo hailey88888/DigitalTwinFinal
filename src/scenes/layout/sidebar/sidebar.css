@@ -1,0 +1,15 @@
+#Sidebar\ Component {
+    overflow-y: auto; /* 세로 스크롤 */
+  }
+  
+  #Sidebar\ Component::-webkit-scrollbar {
+    width: 6px; /* 스크롤바 폭 설정 */
+  }
+  
+  #Sidebar\ Component::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.5); /* 스크롤바 색상 조정 */
+    border-radius: 3px; /* 스크롤바 둥근 모서리 */
+  }
+
+
+  

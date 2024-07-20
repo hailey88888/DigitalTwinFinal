@@ -1,0 +1,42 @@
+{
+	"model_name": "LINE_1",
+	"description":"UWB Tag 생산라인",
+	"component":
+	[
+		{
+			"name":"work_bench",
+			"model_path":"site/1",
+			"3dm_file":"line1_bench-3dm.json",
+            "dm_file":"",			
+			"pos_x": 0,
+			"pos_y": 0,
+			"pos_z": 0,
+			"rotate_x": 0,
+			"rotate_y": 0,
+			"rotate_z": 0
+		},
+		{
+			"name":"IRB1200_1",
+			"model_path":"vendor/ABB/irb1200",
+			"3dm_file":"irb1200-3dm.json",
+            "dm_file":"irb1200-dm.json",			
+			"pos_x": 300,
+			"pos_y": 70,
+			"pos_z": 70,
+			"rotate_x": 0,
+			"rotate_y": 0,
+			"rotate_z": 0
+		},
+		{
+			"name":"IRB1200_2",
+			"3dm_file":"irb1200-3dm.json",
+            "dm_file":"irb1200-dm.json",			  
+			"pos_x": 180,
+			"pos_y": 70,
+			"pos_z": 50,
+			"rotate_x": 0,
+			"rotate_y": 0,
+			"rotate_z": 0
+		}
+	]
+}
