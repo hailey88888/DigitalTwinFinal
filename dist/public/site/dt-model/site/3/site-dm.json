@@ -1,0 +1,37 @@
+{
+	"name": "K-Factory",
+	"description":"KFactory Digital Twin",	
+	"facility":
+	[
+		{
+			"name": "line1",
+			"description":"UWB Tag 생산라인",			
+			"component":
+			[
+				{
+					"name":"IRB1200_1",
+					"model_path":"dt-model/vender/ABB/irb1200",
+					"model":"irb1200-dm.json"
+				},
+				{
+					"name":"IRB1200_2",
+					"model_path":"dt-model/vender/ABB/irb1200",
+					"model":"irb1200-dm.json"
+				}
+			]
+		},
+		{
+			"name": "line2",
+			"description":"UWB Tag 조립라인",			
+			"component":
+			[				
+				{
+					"name":"IRB1200_1",
+					"model_path":"dt-model/vender/ABB/irb1200",
+					"model":"irb1200-dm.json"		 					
+				}				
+			]
+		} 
+	]
+}
+  

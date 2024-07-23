@@ -1,0 +1,19 @@
+{
+	"model_name":"kfactory_indoor",	    
+	"description":"공장 실내",
+	"component":
+	[
+		{
+			"name":"factory_indoor",
+			"model_path":"site/3",			
+			"3dm_file":"factory_indoor-3dm.json",
+            "dm_file":"",			
+			"pos_x": 0,
+			"pos_y": 0,
+			"pos_z": 0,
+			"rotate_x": 0,
+			"rotate_y": 0,
+			"rotate_z": 0
+		}
+	]
+}

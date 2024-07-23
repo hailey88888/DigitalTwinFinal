@@ -21,7 +21,7 @@ import DshBoardCode from "./scenes/dashboardcode/DshBoardCode.jsx";
 import Facility from "./scenes/facility/Facility.jsx";
 import Managing from "./scenes/modeling/Managing.jsx";
 import FacilityCode from "./scenes/facilityCode/FacilityCode.jsx";
-import BuildSite from "./scenes/modeling/newVersion/BuildSite.jsx";
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>

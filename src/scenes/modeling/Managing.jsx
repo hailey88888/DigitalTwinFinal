@@ -1,5 +1,4 @@
 import Table from "../../components/managing/Table";
-import BuildSite from "./newVersion/BuildSite";
 import { Box} from "@mui/material";
 import Select from '@mui/material/Select';
 import { useState,useEffect } from "react";
@@ -9,7 +8,7 @@ import { managingActions } from "../../reducx/3dModeling/table";
 import MenuItem from '@mui/material/MenuItem';
 import { homeActions } from '../../reducx/home';
 import useFetchFacilityData from "../../scenes/modeling/customHook/useFetchFacilityData";
-
+import Site from "./Site";
 
 const Managing = () =>{
     const [facName, setfacName] = useState('');
@@ -107,7 +106,7 @@ useEffect(()=>{
 
             {/* -------------- 2. 3d Modeling -------------- */}
             <div style={{height:'80%',paddingTop:'5%'}}>
-                <BuildSite/>
+                <Site/>
             </div>
                 
         </Box>

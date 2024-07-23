@@ -12,9 +12,9 @@ import { getDshboardItem } from "../../util/restAPI/siteAdmin/dashITEM";
 import { fromDataBase ,getBoxIdFromContents} from "../../components/dashboard/handlers/itemboxeshandler";
 import { getDshboardCodeList } from "../../util/restAPI/siteAdmin/dashboardCode";
 import { commonActions } from "../../reducx/common";
-import BuildSite from "../modeling/newVersion/BuildSite";
-import { managingActions } from "../../reducx/3dModeling/table";
 import useFetchFacilityData from "../../scenes/modeling/customHook/useFetchFacilityData";
+import Site from "../modeling/Site";
+
 
 function Dashboard(){
     const dispatch = useDispatch();
@@ -151,7 +151,7 @@ if(dataDashCode){
       </Box>
       {/* -------------[ 3. 사이트  ]------------*/}
       <div style={{width:'95%', height:'80%',paddingLeft:'3%', paddingTop:'4%'}}>
-        <BuildSite/>
+        <Site/>
       </div>
        
     </>

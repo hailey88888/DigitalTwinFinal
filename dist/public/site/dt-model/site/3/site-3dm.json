@@ -1,0 +1,63 @@
+{
+	"model_name": "K-Factory",
+	"description":"KFactory Digital Twin",
+	"size_x":50.0,
+	"size_y":5.0,
+	"size_z":20.0,
+	"origin_x":0.0,
+	"origin_y":0.0,
+	"origin_z":0.0,
+	"scale_unit":"m",
+    "camera":
+    [
+	   {"name":"camera1","fov":45, "near":10,"far":3000,"pos_x": 0, "pos_y": 800, "pos_z": 1500}
+    ],
+	"light":
+	[
+	   {"name":"light1","color":"#ffffff", "intensity":1.5,"pos_x": 2000, "pos_y": 2000, "pos_z": -1000},
+	   {"name":"light2","color":"#ffffff", "intensity":1.5,"pos_x": 2000, "pos_y": 2000, "pos_z": 1000},
+	   {"name":"light3","color":"#ffffff", "intensity":1.5,"pos_x": 100, "pos_y": 2000, "pos_z": -1000},
+	   {"name":"light4","color":"#ffffff", "intensity":1.5,"pos_x": 100, "pos_y": 2000, "pos_z": 1000}
+  	],
+	"translate":{"pos_x":-1000,"pos_y":300,"pos_z":0},
+	"facility":
+	[
+		{
+			"name":"indoor",
+            "model_path":"site/3",			
+			"3dm_file":"kfactory-3dm.json",	
+			"dm_file":"",
+			"pos_x": 0,
+			"pos_y": 0,
+			"pos_z": 0,
+			"rotate_x": 0,
+			"rotate_y": 0,
+			"rotate_z": 0	
+		},
+		{
+			"name":"line1",
+			"model_path":"site/3",
+			"3dm_file": "line1-3dm.json",	
+            "dm_file":"",			
+			"pos_x": 1000,
+		    "pos_y": 50,
+		    "pos_z": 550,
+			"rotate_x": 0,
+			"rotate_y": 0,
+			"rotate_z": 0
+		},
+		{
+			"name":"line2",
+			"model_path":"site/3",
+			"3dm_file": "line2-3dm.json",
+            "dm_file":"",			
+			"pos_x": 620,
+		    "pos_y": 50,
+		    "pos_z": 650,
+			"rotate_x": 0,
+		    "rotate_y": 0,
+		    "rotate_z": 0
+		} 
+	]
+}
+

@@ -1,0 +1,33 @@
+{
+	"model_name": "LINE_2",
+	"description":"UWB Tag 조립라인",
+	"component":
+	[
+		{
+			"name":"work_bench",
+			"model_path":"site/3",
+			"3dm_file":"line2_bench-3dm.json",
+            "dm_file":"",			
+			"pos_x": 0,
+			"pos_y": 0,
+			"pos_z": 0,
+			"rotate_x": 0,
+			"rotate_y": 0,
+			"rotate_z": 0
+		},
+		{
+			"name":"IRB1200_1",
+			"model_path":"vender/ABB/irb1200",
+			"3dm_file":"irb1200-3dm.json",
+            "dm_file":"irb1200-dm.json",	  
+			"pos_x": 60,
+			"pos_y": 70,
+			"pos_z": 30,
+			"rotate_x": 0,
+			"rotate_y": 0,
+			"rotate_z": 0
+		}				
+	]
+} 
+
+  
