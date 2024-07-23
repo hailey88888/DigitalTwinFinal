@@ -14,7 +14,7 @@ const managingState = {
 
     selectedFac : '',
     seletecdComJson : '',
-
+    
     componentsList :[],
 
     comName : '',

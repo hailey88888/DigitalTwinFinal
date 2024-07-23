@@ -37,7 +37,7 @@ const useFetchFacilityData = () => {
       const seletedComTopic = `/dt/site/${siteNo}/facility/${facilityList[0].name}/${comName}`;
       dispatch(managingActions.getSelectedComTopic(seletedComTopic));
     }
-  }, [facilityList, dispatch, siteNo, comName]);
+  }, [facilityList, dispatch, siteNo]);
 
   return facilityList;
 };

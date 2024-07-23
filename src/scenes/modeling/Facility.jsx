@@ -124,8 +124,8 @@ useEffect(() => {
   if (name !== '') {connectControlHandler(TOPIC_URL_CONTROL, client, handleControlData);}
   return () => {
     disconnectHandler(client);
-    wsControlDataRef.current = [];
-    dispatch(managingActions.getWsControlData(null)); 
+    // wsControlDataRef.current = [];
+    // dispatch(managingActions.getWsControlData(null)); 
   };
 }, [ TOPIC_URL_CONTROL, handleControlData, dispatch]);
 

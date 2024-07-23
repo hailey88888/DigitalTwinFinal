@@ -18,7 +18,8 @@ const Table = () =>{
 
 const componentsListFlag = componentsList &&
                            componentsList.component &&
-                           componentsList.component.length > 0;
+                           componentsList.component.length > 0
+                           &&selectedFac;
 
 
 // 설비 다른거 선택시 새로운 컴포넌트 리스트중 첫번째를 디폴트로 설정
@@ -28,23 +29,33 @@ useEffect(() => {
     console.log("componentsList : ",componentsList);
     const firstComponent = componentsList.component[0];
     console.log("firstComponent : ",firstComponent);
-    // if (firstComponent.model_path !== jsonURL) {
+    if (firstComponent.model_path !== jsonURL) {
       dispatch(managingActions.getSeletecdComJSON(firstComponent.model));
       dispatch(managingActions.getComName(firstComponent.name));
       setJsonURL(firstComponent.model_path);
-    // }
+    }
   }
-}, [componentsList, selectedFac, dispatch, jsonURL]);
+}, [componentsList, selectedFac,jsonURL]);
+
+
+
 
 
 //1. 컴포넌트 리스트(탭들)중 하나를 선택 하기
 const handleChange = (event, newValue) => {
   const seletedComTopic = `/dt/site/${siteNo}/facility/${selectedFac}/${newValue}`;
+  console.log("선택한 컴포넌트 : ",newValue);
   dispatch(managingActions.getSelectedComTopic(seletedComTopic));
-  // console.log("")
   dispatch(managingActions.getComName(newValue));
 
+  // dispatch(managingActions.getComTableData({}));
+
 };
+
+useEffect(()=>{
+  console.log("Table selectedFac 바뀜 : ",selectedFac);
+},[selectedFac])
+
 
 
 //2. 컴포넌트 리스트(탭들)중 하나를 선택한 경우 

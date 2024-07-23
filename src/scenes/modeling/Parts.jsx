@@ -49,9 +49,6 @@ const SetColor = ({ object, color, originalMaterials }) => {
 
 
 //-------------------------------- 자식 요소 동적으로 추가 --------------------------------------------
-
-
-
 const Parts = forwardRef(({ comName, individualPartsData, parts_path, individualFacNum, partsData }, ref) => {
   const dispatch = useDispatch();
   const {siteNo} = useSelector((state) => state.authReducer);
@@ -126,7 +123,6 @@ const Parts = forwardRef(({ comName, individualPartsData, parts_path, individual
   useEffect(()=>{
     dispatch(siteBuildingActions.getNumOfDataRetievals(0));
   },[])
-  
   
   
   useEffect(() => {
@@ -242,20 +238,38 @@ useEffect(() => {
           parent.add(child);
           childRef.current = child;
           groupRef.current = parent;
-          console.log("parentURL : ",parentURL);
-          console.log("groupRef.current : ",groupRef.current);
-          console.log(pos_x, pox_y, pox_z);
+          // console.log("parentURL : ",parentURL);
+          // console.log("groupRef.current : ",groupRef.current);
+          // console.log("childRef.current : ",childRef.current);
+
+          // console.log("좌표 (x,y,z) : ", pos_x, pox_y, pox_z);
           dispatch(managingActions.getChildPosition({ pos_x :pos_x , pos_y : pox_y, pos_z :pox_z }));
           childRef.current.position.set(pos_x, pox_y, pox_z);
         }
       }
-    
-
-   
   }
-
-  
 }, [wsControlData]);
+
+
+useEffect(() => {
+  if(wsControlData){
+      const{component} = wsControlData;
+      if(component){
+        const{child_parts,parent_parts}=component[0];
+        const{pos_x,pox_y,pox_z,name:childURL}=child_parts;
+        const{name:parentURL}=parent_parts;
+        const child = findGroupById(childURL);
+        const parent = findGroupById(parentURL);
+        if (child && parentURL === groupURL) {
+          parent.add(child);
+          childRef.current = child;
+          groupRef.current = parent;
+        
+        }
+      }
+  }
+}, [wsControlData]);
+
 
 
 useEffect(()=>{
@@ -302,7 +316,7 @@ useEffect(()=>{
               object={uploadedModels[name]}
               scale={Array(3).fill(scale)}
             >
-            <SetColor object={uploadedModels[name]} color={currentColor} originalMaterials={originalMaterials} />
+            {/* <SetColor object={uploadedModels[name]} color={currentColor} originalMaterials={originalMaterials} /> */}
             </primitive>
           )}
           {parts && parts.length > 0 &&

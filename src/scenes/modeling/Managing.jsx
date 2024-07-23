@@ -26,17 +26,16 @@ useEffect(()=>{
 //-------------------------------- JSON 연결해서 테이블 구조 --------------------------------
     //1. 시설 선택하기 => select에서
     const handleChange = (event) =>{
-       // setfacName(event.target.value);
+       dispatch(managingActions.getSelectedFac(event.target.value));   //선택한 설비
         const comData = facilityList.find(facility => facility.name === event.target.value);
         dispatch(managingActions.getComponentsList(comData));   //컴포넌트 리스트   
-        dispatch(managingActions.getSelectedFac(event.target.value));   //선택한 설비
-
-        const seletedComTopic = `/dt/site/${siteNo}/facility/${event.target.value}/${comName}`;
-        console.log("seletedComTopic : ",seletedComTopic);
-        dispatch(managingActions.getSelectedComTopic(seletedComTopic));
+        const {component} = comData;
+        if(component){
+            const seletedComTopic = `/dt/site/${siteNo}/facility/${event.target.value}/${component[0].name}`;
+            dispatch(managingActions.getSelectedComTopic(seletedComTopic));
+            dispatch(managingActions.getComName(component[0].name));
+        }
     }
-
-
 
       
     return(
