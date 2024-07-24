@@ -226,52 +226,27 @@ const findGroupById = (id) => {
 // 1. 웹소켓 컨트롤 데이터 올때마다 부모 + 자식 지정 
 // 2. 자식 컨트롤 (위치 바꾸기)
 useEffect(() => {
-  if(wsControlData){
-      const{component} = wsControlData;
-      if(component){
-        const{child_parts,parent_parts}=component[0];
-        const{pos_x,pox_y,pox_z,name:childURL}=child_parts;
-        const{name:parentURL}=parent_parts;
-        const child = findGroupById(childURL);
-        const parent = findGroupById(parentURL);
-        if (child && parentURL === groupURL) {
-          parent.add(child);
-          childRef.current = child;
-          groupRef.current = parent;
-          // console.log("parentURL : ",parentURL);
-          // console.log("groupRef.current : ",groupRef.current);
-          // console.log("childRef.current : ",childRef.current);
-
-          // console.log("좌표 (x,y,z) : ", pos_x, pox_y, pox_z);
-          dispatch(managingActions.getChildPosition({ pos_x :pos_x , pos_y : pox_y, pos_z :pox_z }));
-          childRef.current.position.set(pos_x, pox_y, pox_z);
-        }
+  if (wsControlData) {
+    const { component } = wsControlData;
+    if (component) {
+      const { child_parts, parent_parts } = component[0];
+      const { pos_x, pox_y, pox_z, name: childURL } = child_parts;
+      const { name: parentURL } = parent_parts;
+      const child = findGroupById(childURL);
+      const parent = findGroupById(parentURL);
+      if (child && parentURL === groupURL) {
+        parent.add(child);
+        childRef.current = child;
+        groupRef.current = parent;
+        dispatch(managingActions.getChildPosition({ pos_x, pos_y: pox_y, pos_z: pox_z }));
+        childRef.current.position.set(pos_x, pox_y, pox_z);
       }
+    }
   }
-}, [wsControlData]);
+}, [wsControlData, groupURL, dispatch]);
 
 
-useEffect(() => {
-  if(wsControlData){
-      const{component} = wsControlData;
-      if(component){
-        const{child_parts,parent_parts}=component[0];
-        const{pos_x,pox_y,pox_z,name:childURL}=child_parts;
-        const{name:parentURL}=parent_parts;
-        const child = findGroupById(childURL);
-        const parent = findGroupById(parentURL);
-        if (child && parentURL === groupURL) {
-          parent.add(child);
-          childRef.current = child;
-          groupRef.current = parent;
-        
-        }
-      }
-  }
-}, [wsControlData]);
-
-
-
+//partsData가 wsControlData보다 더 자주 바뀜 => partsData에 맞춰서 같이 호출이 되어야함
 useEffect(()=>{
   if(childRef.current){
     const { pos_x, pos_y, pos_z } = childPosition;
@@ -279,8 +254,6 @@ useEffect(()=>{
   }
 
 },[childPosition,partsData]);
-
-
 
 
 //----------------------- 5. 색상 지정하기 ------------------------

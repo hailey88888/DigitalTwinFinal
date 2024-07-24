@@ -92,7 +92,6 @@ useEffect(() => {
   };
 
 
-
   if (name !== '') {
     connectHandler(TOPIC_URL, client, handleData);
   }
@@ -123,9 +122,7 @@ useEffect(() => {
   const client = createControlWebSocketClient();
   if (name !== '') {connectControlHandler(TOPIC_URL_CONTROL, client, handleControlData);}
   return () => {
-    disconnectHandler(client);
-    // wsControlDataRef.current = [];
-    // dispatch(managingActions.getWsControlData(null)); 
+    // disconnectHandler(client);
   };
 }, [ TOPIC_URL_CONTROL, handleControlData, dispatch]);
 
