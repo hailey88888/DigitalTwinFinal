@@ -122,13 +122,13 @@ const SideBar = () => {
           /> */}
         </Menu>
 {/* ======================Dashboard==================== */}
-        <Typography
+        {role!=='ROLE_ADMIN' && <Typography
           variant="h6"
           color={colors.gray[300]}
           sx={{ m: "15px 0 5px 20px" }}
         >
           {!collapsed ? "운영" : " "}
-        </Typography>{" "}
+        </Typography>}{" "}
 
         <Menu
           menuItemStyles={{

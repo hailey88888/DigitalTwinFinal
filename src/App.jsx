@@ -1,59 +1,3 @@
-// import { createContext,useEffect} from "react";
-// export const ToggledContext = createContext(null);
-// import { useSelector,useDispatch } from "react-redux";
-// import Home from "./scenes/home/Home";
-// import { authActions } from "./reducx/auth";
-// import SignInClass from "./scenes/signin/SignInClass";
-// import { useNavigate } from 'react-router-dom';
-
-// function App() {
-//   const dispatch = useDispatch();
-//   const navigate = useNavigate();
-
-//   const name = JSON.parse(JSON.stringify(localStorage.getItem('name'))) || undefined;
-//   const auth = JSON.parse(JSON.stringify(localStorage.getItem('auth'))) || undefined;
-//   const siteNum = JSON.parse(JSON.stringify(localStorage.getItem('siteNum'))) || undefined;
-//   const siteName = JSON.parse(JSON.stringify(localStorage.getItem('siteName'))) || undefined;
-//   const userId = JSON.parse(JSON.stringify(localStorage.getItem('userId'))) || undefined;
-
-
-//   const {userName,role}= useSelector((state) => state.authReducer);
-//   dispatch(authActions.getUserName(name));
-//   dispatch(authActions.getAuthorization(auth));
-//   dispatch(authActions.getSiteNumber(siteNum));
-//   dispatch(authActions.getSiteName(siteName));
-//   dispatch(authActions.getUserID(userId));
-
-
-// //로그인후 -> Home으로 
-//   useEffect(()=>{
-//     if(name !== undefined){
-//       navigate('/dashboard');
-//     }
-    
-//   },[userName,role])
-
-
-  
-
-//   return (
-//     <>
-//     {/* <Home/> */}
-//     {name === undefined
-//      ? 
-//      <SignInClass/>
-//     //  <Signin/> 
-//      : <Home/>
-//      } 
-//     </>
-   
-      
-//   );
-// }
-
-// export default App;
-
-
 import { createContext, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { authActions } from "./reducx/auth";
@@ -87,10 +31,9 @@ function App() {
   }, [dispatch, name, auth, siteNum, siteName, userId]);
 
   useEffect(() => {
-    if (name !== undefined) {
+    if (name !== undefined && auth !== 'ROLE_ADMIN') {
       navigate('/dashboard');
-      // navigate('/model');
-    }
+    }else if(auth === 'ROLE_ADMIN') navigate('/site');
   }, [name, navigate]);
 
   return (

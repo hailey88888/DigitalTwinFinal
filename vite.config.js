@@ -40,6 +40,7 @@ export default defineConfig({
     global: 'window'  // 이 부분을 추가하여 global을 window로 정의합니다.
   },
   server :{
+    port: 80, // 개발 서버 포트를 80으로 설정
     watch: {
       usePolling: true
     },

@@ -124,19 +124,20 @@ let tableHeader, tableBody;
               return null;
             //URL = site일때 
             }else if(key==='logoFileName'){
-              return {
-                field: key,
-                headerName: key,
-                flex: 1,
-                width: 100,
-                renderCell: (params) => {
-                 return( <img
-                  src={`${imageUrl}/${params.row.siteNo}/logo/logo.png`}
-                  alt="logo"
-                  style={{ width: '30px', height: '20px' }}
-                />)
-                  }
-              }
+              return null;
+              // return {
+              //   field: key,
+              //   headerName: key,
+              //   flex: 1,
+              //   width: 100,
+              //   renderCell: (params) => {
+              //    return( <img
+              //     src={`${imageUrl}/${params.row.siteNo}/logo/logo.png`}
+              //     alt="logo"
+              //     style={{ width: '30px', height: '20px' }}
+              //   />)
+              //     }
+              // }
             }
             // else if(key==='Checkbox selection'){
             //   return {

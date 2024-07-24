@@ -107,7 +107,7 @@ const counterSlice = createSlice({
 
         //4. 컨트롤 데이터 
         getWsControlData(state,action){
-            // console.log("리듀서 : (#2 - 웹소켓 Data) 컨트롤 데이터 : ",action.payload);
+            console.log("리듀서 : (#2 - 웹소켓 Data) 컨트롤 데이터 : ",action.payload);
             state.wsControlData = action.payload;
         },
 
