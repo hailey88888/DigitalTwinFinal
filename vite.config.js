@@ -44,15 +44,22 @@ export default defineConfig({
     watch: {
       usePolling: true
     },
+    // proxy :{
+    //    '/api' : 'http://10.24.1.1:9901',
+    //    '/ws': {
+    //       target: 'ws://10.24.1.1:9901/ws',  
+    //       ws: true,
+    //       changeOrigin: true,
+    //       rewrite: (path) => path.replace(/^\/ws/, '') 
+    //    }
     proxy :{
-       '/api' : 'http://10.24.1.1:9901',
-       '/ws': {
-          target: 'ws://10.24.1.1:9901/ws',  // 정확한 URL 설정
-          ws: true,
-          changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/ws/, '') // 필요에 따라 경로 재작성
-       }
-
+      '/api' : 'digitaltwin.ddns.net:9901',
+      '/ws': {
+         target: 'digitaltwin.ddns.net/:9901/ws',  
+         ws: true,
+         changeOrigin: true,
+         rewrite: (path) => path.replace(/^\/ws/, '') 
+      }
 
       // '/api' : 'http://10.8.0.14:9901',
       //  '/ws': {

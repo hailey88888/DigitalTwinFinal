@@ -8,6 +8,8 @@ import * as THREE from 'three';
 import { useDispatch } from 'react-redux';
 import { siteBuildingActions } from '../../reducx/3dModeling/siteBuilding';
 import { managingActions } from '../../reducx/3dModeling/table';
+import useAddChild from './customHook/useAddChild';
+
 // ----------------------- GLRF 로더 -----------------------
 const createGLTFLoader = async() => {
     const { GLTFLoader } = await import('three/examples/jsm/loaders/GLTFLoader');
@@ -238,12 +240,12 @@ useEffect(() => {
         parent.add(child);
         childRef.current = child;
         groupRef.current = parent;
-        dispatch(managingActions.getChildPosition({ pos_x, pos_y: pox_y, pos_z: pox_z }));
+        dispatch(managingActions.getChildPosition({ pos_x : pos_x, pos_y: pox_y, pos_z: pox_z }));
         childRef.current.position.set(pos_x, pox_y, pox_z);
       }
     }
   }
-}, [wsControlData, groupURL, dispatch]);
+}, [wsControlData, dispatch]);
 
 
 //partsData가 wsControlData보다 더 자주 바뀜 => partsData에 맞춰서 같이 호출이 되어야함
@@ -255,6 +257,25 @@ useEffect(()=>{
 
 },[childPosition,partsData]);
 
+useEffect(() => {
+  if (wsControlData) {
+    const { component } = wsControlData;
+    if (component) {
+      const { child_parts, parent_parts } = component[0];
+      const { pos_x, pox_y, pox_z, name: childURL } = child_parts;
+      const { name: parentURL } = parent_parts;
+      const child = findGroupById(childURL);
+      const parent = findGroupById(parentURL);
+      if (child && parentURL === groupURL) {
+        parent.add(child);
+        dispatch(managingActions.getChildPosition({ pos_x : pos_x, pos_y: pox_y, pos_z: pox_z }));
+        childRef.current.position.set(pos_x, pox_y, pox_z);
+      }
+    }
+  }
+}, []);
+
+// useAddChild();
 
 //----------------------- 5. 색상 지정하기 ------------------------
     // 원래 색상 데이터
