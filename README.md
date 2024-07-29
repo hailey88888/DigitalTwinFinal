@@ -19,7 +19,5 @@ Developed a dashboard for real-time monitoring and management of machines operat
 Frontend: React, R3F (React Three Fiber)
 Backend: Node.js, Express
 Real-time Communication: WebSocket
-Database: MongoDB
-Deployment: AWS
 
 
